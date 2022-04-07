@@ -24,10 +24,10 @@ router.post('/create',  auth.required,async (req,res) => {
     res.send(user);
 });
 
-// router.put('/update/:id', async (req,res) => {
-//     let user = await userServiceObj.updateUser(req.params.id, req.body);
-//     res.send(user);
-// });
+router.put('/update/:id', auth.required, async (req,res) => {
+    let user = await userServiceObj.updateUser(req.params.id, req.body);
+    res.send(user);
+});
 
 router.delete('/delete/:id',  auth.required,async (req,res) => {
     let delUser = await userServiceObj.deleteUser(req.params.id);

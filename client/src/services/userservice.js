@@ -19,5 +19,8 @@ class UserService {
   deleteUser(id) {
       return axios.delete(baseUrl + '/delete/' + id,{headers:headers});
   }
+  updateUser(id,data) {
+    return axios.put(baseUrl + '/update/' + id, data, {headers:headers});
+  }
 }
 export default new UserService();

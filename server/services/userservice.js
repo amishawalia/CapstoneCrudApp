@@ -51,17 +51,17 @@ class UserService {
         }
     }
 
-    // updateUser(id, obj) {
-    //     let User = mongoose.model('Users',UserScehma);
-    //     let user = User.findById(id);
-    //     if (!user) {
-    //         return {}
-    //     } else {
-    //         const update = Object.keys(obj);
-    //         const userKey = Object.keys(user);
-            
-    //     }
-    // }
+     updateUser(id,obj) {
+        let User = mongoose.model('Users',UserScehma);
+        let user = User.findById(id);
+        if (user) {
+            let result = User.updateOne({_id:id},{$set:obj}) 
+            return  result;
+        } else {
+            return {}
+        }
+    }
+    
     deleteUser(id) {
         let User = mongoose.model('Users',UserScehma);
         return User.updateOne({_id: id}, {$set:{isDel: true}}); 

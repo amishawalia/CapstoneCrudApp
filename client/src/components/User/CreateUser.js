@@ -21,6 +21,14 @@ const CreateUser = () => {
       }
     });
   };
+  useEffect(() => {
+
+    dispatch({ type: "name", value: ''})
+    dispatch({ type: "addemail", value: ''})
+    dispatch({ type: "phone", value: ''})
+    dispatch({ type: "gender", value: 'Male'})
+
+  }, [])
   return (
     <>
       <div className="container m-2">
